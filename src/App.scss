@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#root, .App {
+    height: 100%;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+    // transition: background-color 5000s ease-in-out 0s;
+    // -webkit-transition: background-color 9999s ease-out;
+    // -webkit-box-shadow: 0 0 0px 1000px $gray-50 inset !important;
+    // -webkit-text-fill-color: $gray-700 !important;
+    // border-color: rgba($color: $gray-900, $alpha: 0.1) !important;
+// }
