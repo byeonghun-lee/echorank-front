@@ -1,0 +1,54 @@
+@import "styles/color";
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+
+    .login-logo {
+        width: 8rem;
+    }
+
+    .login-title {
+        width: 10rem;
+    }
+
+    .login-btn,
+    .register-btn {
+        width: 15rem;
+        height: 2.5rem;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .login-btn {
+        margin-top: 1rem;
+        background-color: $green-800;
+    }
+
+    .register-btn {
+        margin-top: 0.5rem;
+        background-color: $green-100;
+        color: $green-500;
+    }
+
+    form {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        input {
+            width: 15rem;
+            height: 2.3rem;
+            border: none;
+            border-bottom: 1px solid $gray-400;
+            color: $black;
+
+            &:focus {
+                border-color: $black;
+            }
+        }
+    }
+}

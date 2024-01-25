@@ -4,6 +4,7 @@ import InstagramFollow from "InstagramFollow";
 import YoutubeSubs from "YoutubeSubs";
 import Groups from "Groups";
 import Search from "Search";
+import Login from "Login";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "/search",
                 element: <Search />,
+            },
+            {
+                path: "/login",
+                element: <Login />,
             },
         ],
     },
