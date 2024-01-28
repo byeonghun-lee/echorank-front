@@ -8,6 +8,8 @@ import reportWebVitals from "./reportWebVitals";
 import rootReducer from "store/reducer";
 import rootSaga from "store/sagas";
 
+import { checkLogin } from "store/service/auth/authSlice";
+
 import "./index.scss";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -17,7 +19,13 @@ const store = configureStore({
         getDefaultMiddleware().concat(sagaMiddleware),
 });
 
+const loadUser = () => {
+    console.log("LOAD USER");
+    store.dispatch(checkLogin());
+};
+
 sagaMiddleware.run(rootSaga);
+loadUser();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
