@@ -1,16 +1,37 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import Button from "@mui/joy/Button";
 import { handleSelectMode } from "store/service/commonSlice";
 import AddGroupModal from "common/AddGroupModal";
 
 import "./LayerHeader.scss";
 
+const convertTitle = (pathname) => {
+    switch (pathname) {
+        case "/":
+            return "Instagram";
+        case "/youtube-subs":
+            return "Youtube";
+        // case "/groups":
+        //     return "그룹";
+        // case "/search":
+        //     return "검색";
+
+        default:
+            break;
+    }
+};
+
 const LayerHeader = () => {
     const dispatch = useDispatch();
+    const { pathname } = useLocation();
 
     const currentSelectMode = useSelector(({ common }) => common.selectMode);
     const [addGroupModalStatus, setModalStatus] = useState(false);
+    const accountStatus = useSelector(
+        ({ followRelation }) => followRelation.accountStatus
+    );
 
     const changeSelectMode = ({ selectMode, selectModePageName }) => {
         dispatch(handleSelectMode({ selectMode, selectModePageName }));
@@ -19,29 +40,31 @@ const LayerHeader = () => {
     return (
         <>
             <header id="layer-header">
-                <h2>Instagram</h2>
-                <div className="ctrl-area">
-                    {currentSelectMode && (
+                <h2>{convertTitle(pathname)}</h2>
+                {accountStatus === "complete" && (
+                    <div className="ctrl-area">
+                        {currentSelectMode && (
+                            <Button
+                                variant="solid"
+                                className="add-group-btn"
+                                onClick={() => setModalStatus(true)}
+                            >
+                                그룹 추가
+                            </Button>
+                        )}
                         <Button
                             variant="solid"
-                            className="add-group-btn"
-                            onClick={() => setModalStatus(true)}
+                            onClick={() =>
+                                changeSelectMode({
+                                    selectMode: !currentSelectMode,
+                                    selectModePageName: "instagram",
+                                })
+                            }
                         >
-                            그룹 추가
+                            {currentSelectMode ? "취소" : "선택"}
                         </Button>
-                    )}
-                    <Button
-                        variant="solid"
-                        onClick={() =>
-                            changeSelectMode({
-                                selectMode: !currentSelectMode,
-                                selectModePageName: "instagram",
-                            })
-                        }
-                    >
-                        {currentSelectMode ? "취소" : "선택"}
-                    </Button>
-                </div>
+                    </div>
+                )}
             </header>
             <AddGroupModal
                 modalStatus={addGroupModalStatus}
