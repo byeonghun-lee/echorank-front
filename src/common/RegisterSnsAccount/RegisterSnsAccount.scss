@@ -1,0 +1,46 @@
+@import "styles/color";
+
+.register-sns-account {
+    padding-top: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    .sad-emoji {
+        margin-bottom: 1rem;
+        width: 4rem;
+    }
+
+    p {
+        color: $gray-900;
+    }
+
+    p + p {
+        margin-top: 0.3rem;
+    }
+
+    .sns-input {
+        padding-left: 1rem;
+        margin-top: 1.3rem;
+        margin-bottom: 0.5rem;
+        height: 3rem;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid $gray-400;
+        font-size: 0.9rem;
+    }
+
+    .register-button {
+        height: 3rem;
+        width: 100%;
+        font-size: 1.1rem;
+        background-color: $green-800;
+    }
+
+    .bold-font {
+        font-weight: bold;
+    }
+}

@@ -1,11 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getList } from "store/service/followRelation/followRelationSlice";
+
 import FollowingCard from "common/FollowingCard";
+import RegisterSnsAccount from "common/RegisterSnsAccount";
 
 import "./InstagramFollow.scss";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 
 const InstagramFollow = () => {
+    const dispatch = useDispatch();
     const isSelectedMode = useSelector(({ common }) => common.selectMode);
+    const accountStatus = useSelector(
+        ({ followRelation }) => followRelation.accountStatus
+    );
+
     const [selectList, setList] = useState([]);
 
     const selectedItem = (itemId) => {
@@ -19,15 +27,24 @@ const InstagramFollow = () => {
     };
 
     useEffect(() => {
-        if (!isSelectedMode) {
+        dispatch(getList({ snsName: "instagram" }));
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (!isSelectedMode && selectList.length > 0) {
             setList([]);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSelectedMode]);
+    console.log("render");
 
     return (
         <div className="instagram-follow-list">
+            {accountStatus === "empty" && (
+                <RegisterSnsAccount snsName="인스타그램" />
+            )}
             <ul>
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
+                {/* {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
                     (index) => (
                         <li>
                             <FollowingCard
@@ -38,7 +55,7 @@ const InstagramFollow = () => {
                             />
                         </li>
                     )
-                )}
+                )} */}
             </ul>
         </div>
     );
