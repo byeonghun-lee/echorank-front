@@ -1,5 +1,6 @@
+@import "styles/color";
+
 .add-group-modal {
-    overflow-y: auto;
 
     .new-group {
         margin-top: 1rem;
@@ -48,6 +49,8 @@
 .add-group-modal {
     .MuiModalDialog-root {
         margin-top: 10rem;
+        overflow-y: auto;
+        background-color: $white;
         border-top-right-radius: 2rem !important;
         border-top-left-radius: 2rem !important;
     }
