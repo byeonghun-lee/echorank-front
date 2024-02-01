@@ -4,6 +4,7 @@ import { getList } from "store/service/followRelation/followRelationSlice";
 
 import FollowingCard from "common/FollowingCard";
 import RegisterSnsAccount from "common/RegisterSnsAccount";
+import WaitingRegister from "common/WaitingRegister";
 
 import "./InstagramFollow.scss";
 
@@ -43,6 +44,7 @@ const InstagramFollow = () => {
             {accountStatus === "empty" && (
                 <RegisterSnsAccount snsName="인스타그램" />
             )}
+            {accountStatus === "pending" && <WaitingRegister />}
             <ul>
                 {/* {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
                     (index) => (
