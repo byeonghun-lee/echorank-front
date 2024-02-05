@@ -3,7 +3,7 @@
 .following-card {
     cursor: pointer;
     position: relative;
-    
+
     .name {
         margin-top: 0.5rem;
 
@@ -13,8 +13,14 @@
     }
 
     .desc {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
         font-size: 0.8rem;
-        line-height: 1.1;
+        line-height: 1.2;
         min-height: 2rem;
     }
 
@@ -27,12 +33,9 @@
         height: 100%;
 
         &.selected-status {
-            background-color: rgba($color: $gray-100, $alpha: 0.6)
+            background-color: rgba($color: $gray-100, $alpha: 0.6);
         }
-
 
         padding: 1rem;
     }
-
 }
-
