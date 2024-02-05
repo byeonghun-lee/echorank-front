@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getList } from "store/service/followRelation/followRelationSlice";
+import {
+    setSelectedRelationList,
+    resetSelectedRelationList,
+} from "store/service/followRelation/followRelationSlice";
 
 import FollowingCard from "common/FollowingCard";
 import RegisterSnsAccount from "common/RegisterSnsAccount";
@@ -14,17 +18,16 @@ const InstagramFollow = () => {
     const accountStatus = useSelector(
         ({ followRelation }) => followRelation.accountStatus
     );
+    const loadStatus = useSelector(
+        ({ followRelation }) => followRelation.loadStatus
+    );
+    const followList = useSelector(({ followRelation }) => followRelation.list);
+    const selectedList = useSelector(
+        ({ followRelation }) => followRelation.selectedRelationList
+    );
 
-    const [selectList, setList] = useState([]);
-
-    const selectedItem = (itemId) => {
-        const isItemSelected = selectList.indexOf(itemId) >= 0;
-
-        if (isItemSelected) {
-            setList(selectList.filter((selectedId) => selectedId !== itemId));
-        } else {
-            setList([...selectList, itemId]);
-        }
+    const selectedItem = (followRelation) => {
+        dispatch(setSelectedRelationList({ followRelation }));
     };
 
     useEffect(() => {
@@ -32,12 +35,15 @@ const InstagramFollow = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (!isSelectedMode && selectList.length > 0) {
-            setList([]);
+        if (!isSelectedMode && selectedList.length > 0) {
+            dispatch(resetSelectedRelationList());
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isSelectedMode]);
-    console.log("render");
+
+    if (loadStatus !== "end") {
+        return null;
+    }
 
     return (
         <div className="instagram-follow-list">
@@ -45,20 +51,22 @@ const InstagramFollow = () => {
                 <RegisterSnsAccount snsName="인스타그램" />
             )}
             {accountStatus === "pending" && <WaitingRegister />}
-            <ul>
-                {/* {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
-                    (index) => (
-                        <li>
+            {accountStatus === "complete" && (
+                <ul>
+                    {followList.map((followRelation, index) => (
+                        <li key={index}>
                             <FollowingCard
+                                followRelation={followRelation}
                                 isSelectedMode={isSelectedMode}
-                                id={index}
                                 selectedItem={selectedItem}
-                                isSelected={selectList.indexOf(index) >= 0}
+                                isSelected={selectedList.find(
+                                    (item) => item._id === followRelation._id
+                                )}
                             />
                         </li>
-                    )
-                )} */}
-            </ul>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 };

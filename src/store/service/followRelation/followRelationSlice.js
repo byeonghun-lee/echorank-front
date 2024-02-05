@@ -12,6 +12,7 @@ const followRelationState = {
     accountStatus: "empty",
     list: [],
     loadStatus: "ready",
+    selectedRelationList: [],
 };
 const followRelationSlice = createSlice({
     name: "followRelation",
@@ -28,9 +29,31 @@ const followRelationSlice = createSlice({
             state.list = list;
             state.loadStatus = "end";
         },
+        setSelectedRelationList(state, action) {
+            const itemId = action.payload.followRelation._id;
+            const isSelected = state.selectedRelationList.find(
+                (item) => item._id === itemId
+            );
+
+            if (isSelected) {
+                state.selectedRelationList = state.selectedRelationList.filter(
+                    (item) => item._id !== itemId
+                );
+            } else {
+                state.selectedRelationList.push(action.payload.followRelation);
+            }
+        },
+        resetSelectedRelationList(state) {
+            state.selectedRelationList = [];
+        },
     },
 });
 
-export const { getList, getListSuccess } = followRelationSlice.actions;
+export const {
+    getList,
+    getListSuccess,
+    setSelectedRelationList,
+    resetSelectedRelationList,
+} = followRelationSlice.actions;
 
 export const followRelationReducer = followRelationSlice.reducer;

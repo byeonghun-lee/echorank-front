@@ -2,16 +2,30 @@ import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Avatar from "@mui/joy/Avatar";
 import Checkbox from "@mui/joy/Checkbox";
+import Link from "@mui/joy/Link";
 
-import "./FollwingCard.scss";
+import "./FollowingCard.scss";
 
-const FollowingCard = ({ isSelectedMode, isSelected, id, selectedItem }) => {
+const FollowingCard = ({
+    followRelation,
+    isSelectedMode,
+    isSelected,
+    selectedItem,
+}) => {
     return (
         <Card className="following-card">
             <CardContent sx={{ alignItems: "center", textAlign: "center" }}>
-                <Avatar size="lg" />
-                <p className="name">johnparkgram</p>
-                <p className="desc">John Park 존박</p>
+                <Link
+                    overlay
+                    underline="none"
+                    href={followRelation.followId.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Avatar size="lg" />
+                </Link>
+                <p className="name">{followRelation.followId.name}</p>
+                <p className="desc">{followRelation.followId.desc}</p>
             </CardContent>
             {isSelectedMode && (
                 <div
@@ -24,7 +38,7 @@ const FollowingCard = ({ isSelectedMode, isSelected, id, selectedItem }) => {
                     <Checkbox
                         variant="plain"
                         overlay
-                        onChange={() => selectedItem(id)}
+                        onChange={() => selectedItem(followRelation)}
                     />
                 </div>
             )}
