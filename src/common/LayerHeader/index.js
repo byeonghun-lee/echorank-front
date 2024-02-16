@@ -27,8 +27,11 @@ const LayerHeader = () => {
     const dispatch = useDispatch();
     const { pathname } = useLocation();
 
-    const currentSelectMode = useSelector(({ common }) => common.selectMode);
     const [addGroupModalStatus, setModalStatus] = useState(false);
+    const currentSelectMode = useSelector(({ common }) => common.selectMode);
+    const selectedList = useSelector(
+        ({ followRelation }) => followRelation.selectedRelationList
+    );
     const accountStatus = useSelector(
         ({ followRelation }) => followRelation.accountStatus
     );
@@ -48,6 +51,7 @@ const LayerHeader = () => {
                                 variant="solid"
                                 className="add-group-btn"
                                 onClick={() => setModalStatus(true)}
+                                disabled={!selectedList.length}
                             >
                                 그룹 추가
                             </Button>
@@ -69,6 +73,12 @@ const LayerHeader = () => {
             <AddGroupModal
                 modalStatus={addGroupModalStatus}
                 onClose={() => setModalStatus(false)}
+                onCompleted={() =>
+                    changeSelectMode({
+                        selectMode: false,
+                        selectModePageName: "instagram",
+                    })
+                }
             />
         </>
     );
