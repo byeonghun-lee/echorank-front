@@ -22,7 +22,7 @@ const FollowingCard = ({
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Avatar size="lg" />
+                    <Avatar size="lg" src={followRelation.followId.imageUrl} />
                 </Link>
                 <p className="name">{followRelation.followId.name}</p>
                 <p className="desc">{followRelation.followId.desc}</p>

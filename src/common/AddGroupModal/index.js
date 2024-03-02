@@ -123,7 +123,14 @@ const AddGroupModal = ({ modalStatus, onClose, onCompleted }) => {
                                                 </Avatar>
                                             );
                                         } else {
-                                            return <Avatar />;
+                                            return (
+                                                <Avatar
+                                                    src={
+                                                        followRelation.followId
+                                                            .imageUrl
+                                                    }
+                                                />
+                                            );
                                         }
                                     })}
                             </AvatarGroup>
