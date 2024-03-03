@@ -1,7 +1,6 @@
 @import "styles/color";
 
 .add-group-modal {
-
     .new-group {
         margin-top: 1rem;
     }
@@ -22,32 +21,10 @@
         display: inline-flex;
         flex-direction: column;
         align-items: center;
-
-        &:not(&.add-new-group) {
-            width: calc(50% - 0.5rem);
-        }
+        width: calc(50% - 0.5rem);
 
         &:nth-child(2n) {
             margin-left: 0.5rem;
-        }
-
-        h3 {
-            margin-top: 0.3rem;
-            font-size: 0.9rem;
-        }
-    }
-
-    .group-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        width: 7rem;
-        height: 7rem;
-
-        &.large {
-            width: 100%;
-            height: 10rem;
         }
     }
 }
