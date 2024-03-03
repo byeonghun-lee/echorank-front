@@ -3,6 +3,7 @@ import Layout from "Layout/Layout";
 import InstagramFollow from "InstagramFollow";
 import YoutubeSubs from "YoutubeSubs";
 import Groups from "Groups";
+import GroupDetail from "GroupDetail";
 import Search from "Search";
 import Login from "Login";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: "/groups",
                 element: <Groups />,
+            },
+            {
+                path: "/groups/:id",
+                element: <GroupDetail />,
             },
             {
                 path: "/search",
