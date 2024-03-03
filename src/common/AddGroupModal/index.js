@@ -11,10 +11,9 @@ import ModalDialog from "@mui/joy/ModalDialog";
 import { Transition } from "react-transition-group";
 import AvatarGroup from "@mui/joy/AvatarGroup";
 import Avatar from "@mui/joy/Avatar";
-import Card from "@mui/joy/Card";
-import AddIcon from "@mui/icons-material/Add";
 import Input from "@mui/joy/Input";
 import Button from "@mui/joy/Button";
+import GroupCard from "common/GroupCard";
 
 import "./AddGroupModal.scss";
 
@@ -135,15 +134,7 @@ const AddGroupModal = ({ modalStatus, onClose, onCompleted }) => {
                                     })}
                             </AvatarGroup>
                             <div className="new-group">
-                                <div className="group-card-wrapper add-new-group">
-                                    <Card
-                                        className="group-card"
-                                        onClick={() => handleModalStatus(true)}
-                                    >
-                                        <AddIcon />
-                                    </Card>
-                                    <h3>새로운 그룹</h3>
-                                </div>
+                                <GroupCard isAddGroup={true} />
                             </div>
                             {!isLoading &&
                                 (groupList.length ? (
@@ -158,10 +149,10 @@ const AddGroupModal = ({ modalStatus, onClose, onCompleted }) => {
                                                     )
                                                 }
                                             >
-                                                <Card className="group-card large">
-                                                    <Avatar size="lg" />
-                                                </Card>
-                                                <h3>{group.name}</h3>
+                                                <GroupCard
+                                                    size="large"
+                                                    name={group.name}
+                                                />
                                             </div>
                                         ))}
                                     </div>
