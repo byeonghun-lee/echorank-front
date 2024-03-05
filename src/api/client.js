@@ -5,8 +5,8 @@ const client = axios.create({
         process.env.NODE_ENV === "development"
             ? "http://localhost:4000/"
             : "https://api.ohmydrawer.com/",
-    // withCredentials: "include",
-    withCredentials: true,
+    withCredentials: "include",
+    // withCredentials: true,
 });
 
 export default client;
