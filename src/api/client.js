@@ -4,7 +4,7 @@ const client = axios.create({
     baseURL:
         process.env.NODE_ENV === "development"
             ? "http://localhost:4000/"
-            : "https://api.ohmydrawer.com/",
+            : "https://api.folica.me/",
     withCredentials: true,
 });
 
