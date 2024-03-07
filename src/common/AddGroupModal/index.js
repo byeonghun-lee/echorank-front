@@ -133,7 +133,10 @@ const AddGroupModal = ({ modalStatus, onClose, onCompleted }) => {
                                         }
                                     })}
                             </AvatarGroup>
-                            <div className="new-group">
+                            <div
+                                className="new-group"
+                                onClick={() => handleModalStatus(true)}
+                            >
                                 <GroupCard isAddGroup={true} />
                             </div>
                             {!isLoading &&
