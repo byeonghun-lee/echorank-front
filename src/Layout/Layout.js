@@ -18,8 +18,7 @@ const Layout = () => {
 
     return (
         <>
-            {(location.pathname === "/" ||
-                location.pathname === "/youtube-subs") && <LayerHeader />}
+            {location.pathname !== "/login" && <LayerHeader />}
             <main>
                 <Outlet />
             </main>

@@ -13,10 +13,10 @@ const convertTitle = (pathname) => {
             return "Instagram";
         case "/youtube-subs":
             return "Youtube";
-        // case "/groups":
-        //     return "그룹";
-        // case "/search":
-        //     return "검색";
+        case "/groups":
+            return "Groups";
+        case "/search":
+            return "search";
 
         default:
             break;
