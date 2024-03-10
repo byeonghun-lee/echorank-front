@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const commonInitial = {
     selectMode: false,
     selectModePageName: null,
+    subPathName: null,
 };
 
 const commonSlice = createSlice({
@@ -13,9 +14,12 @@ const commonSlice = createSlice({
             state.selectMode = action.payload.selectMode;
             state.selectModePageName = action.payload.selectModePageName;
         },
+        setSubPathName(state, action) {
+            state.subPathName = action.payload.subPathName;
+        },
     },
 });
 
-export const { handleSelectMode } = commonSlice.actions;
+export const { handleSelectMode, setSubPathName } = commonSlice.actions;
 
 export const commonReducer = commonSlice.reducer;
