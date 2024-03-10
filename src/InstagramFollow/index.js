@@ -14,6 +14,7 @@ import "./InstagramFollow.scss";
 
 const InstagramFollow = () => {
     const dispatch = useDispatch();
+    const isLogin = useSelector(({ auth }) => auth.isAuthenticated);
     const isSelectedMode = useSelector(({ common }) => common.selectMode);
     const accountStatus = useSelector(
         ({ followRelation }) => followRelation.accountStatus
@@ -42,7 +43,10 @@ const InstagramFollow = () => {
     }, [isSelectedMode]);
 
     if (loadStatus !== "end") {
-        return null;
+        if (!isLogin) {
+            return <p>로그인을 해주세요.</p>;
+        }
+        return <p>Loading...</p>;
     }
 
     return (
