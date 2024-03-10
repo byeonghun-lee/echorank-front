@@ -6,6 +6,7 @@ import Groups from "Groups";
 import GroupDetail from "GroupDetail";
 import Search from "Search";
 import Login from "Login";
+import SettingPage from "SettingPage";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />,
+            },
+            {
+                path: "/setting",
+                element: <SettingPage />,
             },
         ],
     },
