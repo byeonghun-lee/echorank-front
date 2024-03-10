@@ -17,9 +17,15 @@ const convertTitle = (pathname) => {
             return "Groups";
         case "/search":
             return "search";
+        case "/setting":
+            return "setting";
 
         default:
             break;
+    }
+
+    if (pathname.indexOf("/groups/") >= 0) {
+        return "Groups";
     }
 };
 
@@ -29,6 +35,7 @@ const LayerHeader = () => {
 
     const [addGroupModalStatus, setModalStatus] = useState(false);
     const currentSelectMode = useSelector(({ common }) => common.selectMode);
+    const subPathName = useSelector(({ common }) => common.subPathName);
     const selectedList = useSelector(
         ({ followRelation }) => followRelation.selectedRelationList
     );
@@ -43,8 +50,12 @@ const LayerHeader = () => {
     return (
         <>
             <header id="layer-header">
-                <h2>{convertTitle(pathname)}</h2>
-                {accountStatus === "complete" && (
+                <div className="title-area">
+                    <h2>{convertTitle(pathname)}</h2>
+                    {subPathName && <p>&#62;{" "}{subPathName}</p>}
+                </div>
+
+                {accountStatus === "complete" && pathname === "/" && (
                     <div className="ctrl-area">
                         {currentSelectMode && (
                             <Button
