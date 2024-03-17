@@ -1,5 +1,5 @@
-const SettingPage  = () => {
-    return "세팅"
+const SettingPage = () => {
+    return <h2>준비 중입니다.</h2>;
 };
 
-export default SettingPage
+export default SettingPage;
