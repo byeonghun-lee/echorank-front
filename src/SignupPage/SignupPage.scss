@@ -1,0 +1,81 @@
+@import "styles/color";
+
+.signup-page {
+    input:not([type="checkbox"]) {
+        padding: 10px;
+        height: 3rem;
+        font-size: 1.1rem;
+        border-radius: 3px;
+        border: 1px solid $gray-600;
+        width: 100%;
+    }
+
+    label {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $gray-500;
+    }
+
+    .email-input-area {
+        display: flex;
+
+        button {
+            background-color: $green-500;
+
+            &:disabled {
+                background-color: $gray-200;
+            }
+        }
+    }
+
+    .desc {
+        margin-top: 0.5rem;
+        color: $gray-600;
+    }
+
+    .email-input {
+        margin-right: 1rem;
+        flex: 1;
+    }
+
+    .err-msg {
+        margin-top: 0.3rem;
+        color: $red-500;
+    }
+
+    .password-area {
+        input + input {
+            margin-top: 0.5rem;
+        }
+    }
+
+    .show-pwd-area {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+
+        input {
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+
+        label {
+            margin: 0;
+            margin-left: 0.5rem;
+        }
+    }
+
+    .sign-up-btn-area {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+
+        button {
+            background-color: $green-800;
+        }
+    }
+}

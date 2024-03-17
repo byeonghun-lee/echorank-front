@@ -16,10 +16,10 @@
 
     .login-btn,
     .register-btn {
-        width: 15rem;
-        height: 2.5rem;
+        width: 17rem;
+        height: 3rem;
         font-weight: bold;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .login-btn {
@@ -31,6 +31,10 @@
         margin-top: 0.5rem;
         background-color: $green-100;
         color: $green-500;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     form {
@@ -40,12 +44,13 @@
         align-items: flex-start;
 
         input {
-            width: 15rem;
-            height: 2.3rem;
+            width: 17rem;
+            height: 3rem;
             border: none;
             border-bottom: 1px solid $gray-400;
             border-radius: 0;
             color: $black;
+            font-size: 1rem;
 
             &:focus {
                 border-color: $black;
