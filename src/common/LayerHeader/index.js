@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Button from "@mui/joy/Button";
 import { handleSelectMode } from "store/service/commonSlice";
 import AddGroupModal from "common/AddGroupModal";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import "./LayerHeader.scss";
 
@@ -16,9 +17,11 @@ const convertTitle = (pathname) => {
         case "/groups":
             return "Groups";
         case "/search":
-            return "search";
+            return "Search";
         case "/setting":
-            return "setting";
+            return "Setting";
+        case "/signup":
+            return "Signup";
 
         default:
             break;
@@ -52,7 +55,12 @@ const LayerHeader = () => {
             <header id="layer-header">
                 <div className="title-area">
                     <h2>{convertTitle(pathname)}</h2>
-                    {subPathName && <p>&#62;{" "}{subPathName}</p>}
+                    {subPathName && (
+                        <>
+                            <NavigateNextIcon className="next-icon" />
+                            <p>{subPathName}</p>
+                        </>
+                    )}
                 </div>
 
                 {accountStatus === "complete" && pathname === "/" && (
