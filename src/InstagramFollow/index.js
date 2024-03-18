@@ -10,6 +10,8 @@ import FollowingCard from "common/FollowingCard";
 import RegisterSnsAccount from "common/RegisterSnsAccount";
 import WaitingRegister from "common/WaitingRegister";
 
+import CircularProgress from "@mui/joy/CircularProgress";
+
 import "./InstagramFollow.scss";
 
 const InstagramFollow = () => {
@@ -46,7 +48,11 @@ const InstagramFollow = () => {
         if (!isLogin) {
             return <p>로그인을 해주세요.</p>;
         }
-        return <p>Loading...</p>;
+        return (
+            <div className="loading">
+                <CircularProgress color="success" size="lg" variant="soft" />
+            </div>
+        );
     }
 
     return (
