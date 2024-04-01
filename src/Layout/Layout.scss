@@ -12,11 +12,18 @@ main {
     position: fixed;
     z-index: 100;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 480px;
 
     border-top: 1px solid $gray-300;
     width: 100%;
     background-color: $white;
+
+    @media (min-width: 480px) {
+        border-left: 1px solid $gray-400;
+        border-right: 1px solid $gray-400;
+    }
 
     ul {
         display: flex;
