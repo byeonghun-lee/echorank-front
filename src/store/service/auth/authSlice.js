@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const authState = {
     info: null,
-    isAuthenticated: false,
+    isAuthenticated: null,
     loginError: null,
     // needLogin: false,
 };

@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
     signup as signupAPI,
@@ -116,6 +116,9 @@ const SignupPage = () => {
 
     return (
         <div className="signup-page">
+            <Link to="/">
+                <h1>Folica</h1>
+            </Link>
             <form onSubmit={handleSubmit(onSignup)}>
                 <div>
                     <label htmlFor="">이메일</label>
