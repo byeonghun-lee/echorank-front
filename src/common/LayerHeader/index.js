@@ -10,7 +10,7 @@ import "./LayerHeader.scss";
 
 const convertTitle = (pathname) => {
     switch (pathname) {
-        case "/":
+        case "/instagram-subs":
             return "Instagram";
         case "/youtube-subs":
             return "Youtube";
@@ -63,31 +63,32 @@ const LayerHeader = () => {
                     )}
                 </div>
 
-                {accountStatus === "complete" && pathname === "/" && (
-                    <div className="ctrl-area">
-                        {currentSelectMode && (
+                {accountStatus === "complete" &&
+                    pathname === "/instagram-subs" && (
+                        <div className="ctrl-area">
+                            {currentSelectMode && (
+                                <Button
+                                    variant="solid"
+                                    className="add-group-btn"
+                                    onClick={() => setModalStatus(true)}
+                                    disabled={!selectedList.length}
+                                >
+                                    그룹 추가
+                                </Button>
+                            )}
                             <Button
                                 variant="solid"
-                                className="add-group-btn"
-                                onClick={() => setModalStatus(true)}
-                                disabled={!selectedList.length}
+                                onClick={() =>
+                                    changeSelectMode({
+                                        selectMode: !currentSelectMode,
+                                        selectModePageName: "instagram",
+                                    })
+                                }
                             >
-                                그룹 추가
+                                {currentSelectMode ? "취소" : "선택"}
                             </Button>
-                        )}
-                        <Button
-                            variant="solid"
-                            onClick={() =>
-                                changeSelectMode({
-                                    selectMode: !currentSelectMode,
-                                    selectModePageName: "instagram",
-                                })
-                            }
-                        >
-                            {currentSelectMode ? "취소" : "선택"}
-                        </Button>
-                    </div>
-                )}
+                        </div>
+                    )}
             </header>
             <AddGroupModal
                 modalStatus={addGroupModalStatus}

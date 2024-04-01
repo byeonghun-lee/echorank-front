@@ -1,6 +1,10 @@
 @import "styles/color";
 
 .signup-page {
+    padding-top: 7rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+
     input:not([type="checkbox"]) {
         padding: 10px;
         height: 3rem;

@@ -29,12 +29,12 @@ const Login = () => {
 
     useEffect(() => {
         if (user) {
-            navigate("/");
+            navigate("/instagram-subs");
         } else if (email) {
             setCompleteSignupMsg(true);
             setValue("email", email);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate, user, email]);
 
     return (

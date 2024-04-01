@@ -43,7 +43,7 @@ const RegisterSnsAccount = ({ snsName }) => {
                     <input
                         className="sns-input"
                         type="text"
-                        placeholder="주소를 복사해서 넣어주세요."
+                        placeholder="인스타그램 아이디를 입력해주세요."
                         value={snsPath}
                         onChange={(e) => setSnsPath(e.target.value)}
                     />

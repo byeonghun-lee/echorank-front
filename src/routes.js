@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "Layout/Layout";
+import MainPage from "MainPage";
 import InstagramFollow from "InstagramFollow";
 import YoutubeSubs from "YoutubeSubs";
 import Groups from "Groups";
@@ -9,13 +10,25 @@ import Login from "Login";
 import SettingPage from "SettingPage";
 import SignupPage from "SignupPage";
 
+import PrivateRoutes from "PrivateRoutes";
+
 const router = createBrowserRouter([
+    { path: "/", element: <MainPage /> },
+    { path: "/login", element: <Login /> },
+    {
+        path: "/signup",
+        element: <SignupPage />,
+    },
     {
         path: "/",
-        element: <Layout />,
+        element: (
+            <PrivateRoutes>
+                <Layout />
+            </PrivateRoutes>
+        ),
         children: [
             {
-                path: "/",
+                path: "/instagram-subs",
                 element: <InstagramFollow />,
             },
             {
@@ -35,18 +48,13 @@ const router = createBrowserRouter([
                 element: <Search />,
             },
             {
-                path: "/login",
-                element: <Login />,
-            },
-            {
                 path: "/setting",
                 element: <SettingPage />,
             },
-            {
-                path: "/signup",
-                element: <SignupPage />,
-            },
         ],
+    },
+    {
+        path: "/",
     },
 ]);
 
