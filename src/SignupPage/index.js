@@ -102,6 +102,7 @@ const SignupPage = () => {
         delete data.passwordConfirm;
 
         try {
+            data.service = "echorank";
             const res = await signupAPI(data);
             if (res.status === 200 && res.data.nickname) {
                 reset();
@@ -117,7 +118,7 @@ const SignupPage = () => {
     return (
         <div className="signup-page">
             <Link to="/">
-                <h1>Folica</h1>
+                <h1>EchoRank</h1>
             </Link>
             <form onSubmit={handleSubmit(onSignup)}>
                 <div>

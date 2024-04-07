@@ -1,0 +1,59 @@
+@import "styles/color";
+
+.main-page {
+    padding-top: 3rem;
+    padding-left: 2rem;
+
+    $table-border-color: $gray-400;
+
+    .keyword-input-wrapper {
+        display: flex;
+        margin-bottom: 2rem;
+
+        input {
+            width: 20rem;
+        }
+
+        button {
+            width: 5rem;
+            margin-left: 10px;
+        }
+    }
+
+    .table-wrapper {
+        width: 60rem;
+        border: 1px solid $table-border-color;
+    }
+
+    .table-header,
+    .table-body-item {
+        display: flex;
+
+        .keyword {
+            flex: 0.5;
+            padding: 0.4rem;
+        }
+
+        .blog-list {
+            flex: 1;
+            padding: 0.4rem;
+        }
+
+        .log-area {
+            flex: 2;
+            padding: 0.4rem;
+        }
+
+        li + li {
+            border-left: 1px solid $table-border-color;
+        }
+    }
+
+    .table-header {
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    .table-body-item + .table-body-item {
+        border-top: 1px solid $table-border-color;
+    }
+}

@@ -1,51 +1,37 @@
 import { NavLink, Outlet } from "react-router-dom";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import FolderSharedOutlinedIcon from "@mui/icons-material/FolderSharedOutlined";
-import SearchIcon from "@mui/icons-material/Search";
-import SettingsIcon from "@mui/icons-material/Settings";
-
-import LayerHeader from "common/LayerHeader";
+import List from "@mui/joy/List";
+import ListItem from "@mui/joy/ListItem";
+import ListItemButton from "@mui/joy/ListItemButton";
+import ListItemContent from "@mui/joy/ListItemContent";
+import ListItemDecorator from "@mui/joy/ListItemDecorator";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import HomeIcon from "@mui/icons-material/Home";
 
 import "./Layout.scss";
 
 const Layout = () => {
     return (
-        <>
-            <LayerHeader />
+        <div className="layout">
+            <nav id="side-nav">
+                <h1>EchoRank</h1>
+                <List>
+                    <ListItem>
+                        <NavLink to="/main">
+                            <ListItemButton variant="plain">
+                                <ListItemDecorator>
+                                    <HomeIcon />
+                                </ListItemDecorator>
+                                <ListItemContent>키워드 관리</ListItemContent>
+                                <KeyboardArrowRightIcon />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                </List>
+            </nav>
             <main>
                 <Outlet />
             </main>
-            <nav id="root-nav">
-                <ul>
-                    <li>
-                        <NavLink to="/instagram-subs">
-                            <InstagramIcon fontSize="medium" />
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/youtube-subs">
-                            <YouTubeIcon fontSize="medium" />
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/groups">
-                            <FolderSharedOutlinedIcon fontSize="medium" />
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/search">
-                            <SearchIcon fontSize="medium" />
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/setting">
-                            <SettingsIcon fontSize="medium" />
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
-        </>
+        </div>
     );
 };
 

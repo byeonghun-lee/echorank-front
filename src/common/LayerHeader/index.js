@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Button from "@mui/joy/Button";
 import { handleSelectMode } from "store/service/commonSlice";
-import AddGroupModal from "common/AddGroupModal";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 import "./LayerHeader.scss";
@@ -90,16 +89,6 @@ const LayerHeader = () => {
                         </div>
                     )}
             </header>
-            <AddGroupModal
-                modalStatus={addGroupModalStatus}
-                onClose={() => setModalStatus(false)}
-                onCompleted={() =>
-                    changeSelectMode({
-                        selectMode: false,
-                        selectModePageName: "instagram",
-                    })
-                }
-            />
         </>
     );
 };

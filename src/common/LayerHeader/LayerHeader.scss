@@ -6,12 +6,6 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 480px;
-
-    @media (min-width: 480px) {
-        border-left: 1px solid $gray-400;
-        border-right: 1px solid $gray-400;
-    }
 
     display: flex;
     justify-content: space-between;

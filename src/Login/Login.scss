@@ -4,19 +4,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10rem;
+    padding-top: 7%;
 
-    .login-logo {
-        width: 8rem;
-    }
+    .title-area {
+        margin-bottom: 4rem;
 
-    .login-title {
-        width: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        width: 25rem;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: $gray-800;
+        }
+
+        p {
+            font-size: 1rem;
+            color: $gray-700;
+        }
     }
 
     .login-btn,
     .register-btn {
-        width: 17rem;
+        width: 25rem;
         height: 3rem;
         font-weight: bold;
         font-size: 1rem;
@@ -24,13 +37,17 @@
 
     .login-btn {
         margin-top: 1rem;
-        background-color: $green-800;
+        background-color: $deep-purple-800;
+
+        &:hover {
+            background-color: $deep-purple-900;
+        }
     }
 
     .register-btn {
         margin-top: 0.5rem;
-        background-color: $green-100;
-        color: $green-500;
+        background-color: $deep-purple-100;
+        color: $deep-purple-500;
         border-radius: 6px;
         display: flex;
         justify-content: center;
@@ -44,7 +61,7 @@
         align-items: flex-start;
 
         input {
-            width: 17rem;
+            width: 25rem;
             height: 3rem;
             border: none;
             border-bottom: 1px solid $gray-400;

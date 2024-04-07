@@ -7,9 +7,6 @@ import { login } from "store/service/auth/authSlice";
 import Button from "@mui/joy/Button";
 import Snackbar from "@mui/joy/Snackbar";
 
-import logo from "assets/logo/logo.svg";
-import title from "assets/logo/title.svg";
-
 import "./Login.scss";
 
 const Login = () => {
@@ -29,7 +26,7 @@ const Login = () => {
 
     useEffect(() => {
         if (user) {
-            navigate("/instagram-subs");
+            navigate("/main");
         } else if (email) {
             setCompleteSignupMsg(true);
             setValue("email", email);
@@ -40,8 +37,10 @@ const Login = () => {
     return (
         <>
             <div className="login-page">
-                <img src={logo} alt="Folica logo" className="login-logo" />
-                <img src={title} alt="Folica title" className="login-title" />
+                <div className="title-area">
+                    <h1>EchoRank</h1>
+                    <p>상위 노출 자동으로 확인하세요.</p>
+                </div>
                 <form onSubmit={handleSubmit(onLogin)}>
                     <input
                         type="email"
