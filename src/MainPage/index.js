@@ -79,14 +79,22 @@ const MainPage = () => {
                                 <p>더보기</p> */}
                             </li>
                             <li className="log-area">
+                                {item.logList.map((log, logIndex) => (
+                                    <p key={logIndex}>
+                                        {log.action}{" "}
+                                        {dayjs(log.createdAt).format(
+                                            "YYYY-MM-DD HH:mm"
+                                        )}
+                                    </p>
+                                ))}
                                 {/* <p>5월 1일 네이버 블로그 상위노출</p>
                                 <p>4월 30일 네이버 블로그 상위 노출</p> */}
-                                <p>
+                                {/* <p>
                                     {dayjs(item.createdAt).format(
                                         "YYYY-MM-DD HH:mm"
                                     )}
                                     키워드 등록
-                                </p>
+                                </p> */}
                                 {/* <p>더보기</p> */}
                             </li>
                         </ul>
