@@ -8,7 +8,7 @@ export const checkLogin = () => client.get("/auth/check");
 export const signup = (signupData) => client.post("/auth/register", signupData);
 
 export const verifyEmail = (email) =>
-    client.post("/auth/verify-email", { email, isFolica: true });
+    client.post("/auth/verify-email", { email, service: "EchoRank" });
 
 export const checkVerificationCode = ({ email, code }) =>
     client.post("/auth/verification-code", { email, code });

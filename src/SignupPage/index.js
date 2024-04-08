@@ -106,7 +106,7 @@ const SignupPage = () => {
             const res = await signupAPI(data);
             if (res.status === 200 && res.data.nickname) {
                 reset();
-                navigate(`/login?email=${data.email}`);
+                navigate(`/?email=${data.email}`);
             }
         } catch (error) {
             console.log("signUpError", error);
