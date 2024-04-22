@@ -3,6 +3,7 @@ import Layout from "Layout/Layout";
 import Login from "Login";
 import SignupPage from "SignupPage";
 import MainPage from "MainPage";
+import ScraingImageDetail from "ScraingDetailImage";
 
 import PrivateRoutes from "PrivateRoutes";
 
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
     {
         path: "/signup",
         element: <SignupPage />,
+    },
+    {
+        path: "/scrapingLog",
+        element: <ScraingImageDetail/>
     },
     {
         path: "/",
