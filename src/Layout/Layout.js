@@ -6,6 +6,7 @@ import ListItemContent from "@mui/joy/ListItemContent";
 import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import HomeIcon from "@mui/icons-material/Home";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 import "./Layout.scss";
 
@@ -21,7 +22,18 @@ const Layout = () => {
                                 <ListItemDecorator>
                                     <HomeIcon />
                                 </ListItemDecorator>
-                                <ListItemContent>키워드 관리</ListItemContent>
+                                <ListItemContent>키워드 리스트</ListItemContent>
+                                <KeyboardArrowRightIcon />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                    <ListItem>
+                        <NavLink to="/add-keyword">
+                            <ListItemButton variant="plain">
+                                <ListItemDecorator>
+                                    <PlaylistAddIcon />
+                                </ListItemDecorator>
+                                <ListItemContent>키워드 등록</ListItemContent>
                                 <KeyboardArrowRightIcon />
                             </ListItemButton>
                         </NavLink>

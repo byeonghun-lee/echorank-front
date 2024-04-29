@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import Input from "@mui/joy/Input";
-import Button from "@mui/joy/Button";
 import dayjs from "dayjs";
 
-import { create as createAPI, getList as getListAPI } from "api/keyword";
+import { getList as getListAPI } from "api/keyword";
 
 import "./MainPage.scss";
 
 const MainPage = () => {
-    const [newKeyword, setNewKeyword] = useState("");
     const [keywordList, setKeywordList] = useState([]);
 
     const getList = async () => {
@@ -22,44 +19,12 @@ const MainPage = () => {
         }
     };
 
-    const onAddKeyword = async () => {
-        if (!newKeyword) {
-            return;
-        }
-
-        try {
-            await createAPI(newKeyword);
-
-            getList();
-            setNewKeyword("");
-        } catch (error) {
-            console.log("error:", error);
-            window.alert(error.message);
-        }
-    };
-
     useEffect(() => {
         getList();
     }, []);
 
     return (
         <div className="main-page">
-            <div className="keyword-input-wrapper">
-                <Input
-                    size="lg"
-                    placeholder="키워드를 입력해주세요."
-                    value={newKeyword}
-                    onChange={(e) => setNewKeyword(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter" && !e.nativeEvent.isComposing) {
-                            onAddKeyword();
-                        }
-                    }}
-                />
-                <Button size="lg" onClick={onAddKeyword} disabled={!newKeyword}>
-                    추가
-                </Button>
-            </div>
             {keywordList.length ? (
                 <div className="table-wrapper">
                     <ul className="table-header">

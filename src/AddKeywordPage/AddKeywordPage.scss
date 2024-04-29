@@ -1,0 +1,95 @@
+@import "styles/color";
+
+.add-keyword-page {
+    $table-border-color: $gray-400;
+
+    padding: 8rem 3rem;
+
+    .add-keyword-table-wrapper {
+        border: 1px solid $table-border-color;
+
+        display: inline-block;
+    }
+
+    .row-item {
+        display: flex;
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    .keyword-area {
+        display: flex;
+        align-items: flex-start;
+        padding: 0.5rem;
+        width: 19rem;
+        border-right: 1px solid $table-border-color;
+
+        > div {
+            flex: 1;
+        }
+
+        button {
+            margin-left: 10px;
+            margin-top: 5px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .add-blog-list-area {
+        padding: 0.5rem;
+        width: 37rem;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+
+            &:not(&:last-child) {
+                margin-bottom: 10px;
+            }
+
+            > div {
+                flex: 1;
+            }
+
+            button {
+                margin-top: 5px;
+                margin-left: 10px;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
+
+    .insert-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.keyword {
+            padding: 0.6rem 0;
+        }
+
+        &.blog-item {
+            padding: 0.4rem 0;
+        }
+
+        button {
+            border-radius: 50%;
+            height: 36px;
+            background-color: $deep-purple-400;
+
+            &:hover {
+                background-color: $deep-purple-500;
+            }
+        }
+    }
+
+    .button-area {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        width: 56rem;
+    }
+}

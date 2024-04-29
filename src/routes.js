@@ -3,6 +3,7 @@ import Layout from "Layout/Layout";
 import Login from "Login";
 import SignupPage from "SignupPage";
 import MainPage from "MainPage";
+import AddKeywordPage from "AddKeywordPage";
 import ScraingImageDetail from "ScraingDetailImage";
 
 import PrivateRoutes from "PrivateRoutes";
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/scrapingLog",
-        element: <ScraingImageDetail/>
+        element: <ScraingImageDetail />,
     },
     {
         path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: "/main",
                 element: <MainPage />,
+            },
+            {
+                path: "/add-keyword",
+                element: <AddKeywordPage/>
             },
         ],
     },

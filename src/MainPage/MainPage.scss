@@ -6,21 +6,10 @@
 
     $table-border-color: $gray-400;
 
-    .keyword-input-wrapper {
-        display: flex;
-        margin-bottom: 2rem;
-
-        input {
-            width: 20rem;
-        }
-
-        button {
-            width: 5rem;
-            margin-left: 10px;
-        }
-    }
 
     .table-wrapper {
+        margin-top: 5rem;
+
         width: 60rem;
         border: 1px solid $table-border-color;
     }
