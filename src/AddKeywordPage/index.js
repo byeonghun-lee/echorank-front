@@ -1,14 +1,22 @@
+import { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 
 import Input from "@mui/joy/Input";
 import Button from "@mui/joy/Button";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import CheckIcon from "@mui/icons-material/Check";
+
+import { create as createAPI } from "api/keyword";
 
 import "./AddKeywordPage.scss";
 
 const AddKeywordPage = () => {
-    const { register, control, getValues, handleSubmit } = useForm({
+    const [successAlert, setAlert] = useState(false);
+    const [loadginStatus, setLoadingStatus] = useState(false);
+    const { register, control, getValues, handleSubmit, reset } = useForm({
         defaultValues: {
             keywords: [{ keyword: "", blogList: [""] }],
         },
@@ -19,8 +27,34 @@ const AddKeywordPage = () => {
         name: "keywords",
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        setLoadingStatus(true);
         console.log(data);
+
+        const keywords = data.keywords
+            .filter((item) => !!item.keyword)
+            .map((item) => ({
+                keyword: item.keyword,
+                blogList: item.blogList.filter((blogItem) => !!blogItem),
+            }));
+
+        console.log(":keywords:", keywords);
+
+        if (!keywords.length) {
+            setLoadingStatus(false);
+            return;
+        }
+
+        try {
+            await createAPI(keywords);
+            setAlert(true);
+            reset();
+        } catch (error) {
+            console.log("error:", error);
+            window.alert(error.message);
+        }
+
+        setLoadingStatus(false);
     };
 
     const addKeyword = () => {
@@ -120,8 +154,27 @@ const AddKeywordPage = () => {
                 </div>
             </div>
             <div className="button-area">
-                <Button size="lg">키워드 추가하기</Button>
+                <Button
+                    size="lg"
+                    onClick={handleSubmit(onSubmit)}
+                    disabled={loadginStatus}
+                >
+                    키워드 추가하기
+                </Button>
             </div>
+            <Snackbar
+                open={successAlert}
+                autoHideDuration={3000}
+                onClose={() => setAlert(false)}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+                <Alert
+                    icon={<CheckIcon fontSize="inherit" />}
+                    severity="success"
+                >
+                    등록이 완료되었습니다.
+                </Alert>
+            </Snackbar>
         </div>
     );
 };
