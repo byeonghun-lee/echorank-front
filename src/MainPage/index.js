@@ -32,16 +32,24 @@ const MainPage = () => {
                         <li className="blog-list">관리 블로그 리스트</li>
                         <li className="log-area">로그</li>
                     </ul>
-                    {keywordList.map((item) => (
-                        <ul className="table-body-item">
+                    {keywordList.map((item, keywordIndex) => (
+                        <ul className="table-body-item" key={keywordIndex}>
                             <li className="keyword">{item.name}</li>
                             <li className="blog-list">
-                                <p>-</p>
-                                {/* 등록하기 버튼 */}
-                                {/* <p>https://blog.naver.com</p>
-                                <p>https://blog.naver.com</p>
-                                <p>https://blog.naver.com</p>
-                                <p>더보기</p> */}
+                                {item.blogList?.length ? (
+                                    item.blogList.map((blog, index) => (
+                                        <a
+                                            href={blog}
+                                            rel="noreferrer noopener"
+                                            target="_blank"
+                                            key={index}
+                                        >
+                                            {blog}
+                                        </a>
+                                    ))
+                                ) : (
+                                    <p>-</p>
+                                )}
                             </li>
                             <li className="log-area">
                                 {item.logList.map((log, logIndex) => (

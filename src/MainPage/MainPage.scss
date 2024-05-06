@@ -6,11 +6,10 @@
 
     $table-border-color: $gray-400;
 
-
     .table-wrapper {
         margin-top: 5rem;
 
-        width: 60rem;
+        width: 62rem;
         border: 1px solid $table-border-color;
     }
 
@@ -24,7 +23,7 @@
         }
 
         .blog-list {
-            flex: 1;
+            flex: 2;
             padding: 0.4rem;
         }
 
@@ -44,5 +43,26 @@
 
     .table-body-item + .table-body-item {
         border-top: 1px solid $table-border-color;
+    }
+
+    .table-body-item {
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                word-break: break-all;
+                color: $blue-700;
+                text-decoration: underline;
+
+                &:visited {
+                    color: $deep-purple-800;
+                }
+                // width: 15rem;
+                // overflow: hidden;
+                // white-space: nowrap;
+                // text-overflow: ellipsis;
+            }
+        }
     }
 }
