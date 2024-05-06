@@ -7,21 +7,24 @@ import "./ScraingDetailImage.scss";
 
 const ScraingDetailImage = () => {
     const [searchParams] = useSearchParams();
+    const [loading, setLoadingStatus] = useState(false);
     const [scrapingData, setScrapingData] = useState({});
     const relationUuid = searchParams.get("image");
     const scrapingDate = searchParams.get("date");
 
     const getImage = async () => {
+        setLoadingStatus(true);
         try {
             const { data } = await getScraingDetailImageAPI({
                 uuid: relationUuid,
                 date: scrapingDate,
             });
-            // console.log("data:", data);
+            console.log("data:", data);
             setScrapingData(data);
         } catch (error) {
             window.alert(error.message);
         }
+        setLoadingStatus(false);
     };
 
     useEffect(() => {
@@ -31,8 +34,12 @@ const ScraingDetailImage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (!Object.keys(scrapingData)?.length) {
+    if (!loading && !Object.keys(scrapingData)?.length) {
         return <h2>잘못된 접근입니다.</h2>;
+    }
+
+    if (loading) {
+        return <p>로딩 중...</p>;
     }
 
     return (
@@ -45,7 +52,7 @@ const ScraingDetailImage = () => {
                 />
             </div>
 
-            {scrapingData.blogList.map((blogItem, index) => (
+            {scrapingData.blogList?.map((blogItem, index) => (
                 <div
                     className="target-mark"
                     key={index}
