@@ -1,0 +1,22 @@
+@import "styles/color";
+
+.contact-us-page {
+    padding: 5rem 2rem;
+
+    .way-name {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .value {
+        a {
+            color: $blue-700;
+            text-decoration: underline;
+        }
+    }
+
+    li + li {
+        margin-top: 2rem;
+    }
+}

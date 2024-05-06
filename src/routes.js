@@ -5,6 +5,7 @@ import SignupPage from "SignupPage";
 import MainPage from "MainPage";
 import AddKeywordPage from "AddKeywordPage";
 import ScraingImageDetail from "ScraingDetailImage";
+import ContactUsPage from "ContactUsPage";
 
 import PrivateRoutes from "PrivateRoutes";
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
                 path: "/add-keyword",
                 element: <AddKeywordPage/>
             },
+            {
+                path: "/contact-us",
+                element: <ContactUsPage/>
+            }
         ],
     },
     {

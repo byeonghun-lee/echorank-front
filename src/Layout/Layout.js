@@ -7,6 +7,7 @@ import ListItemDecorator from "@mui/joy/ListItemDecorator";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import HomeIcon from "@mui/icons-material/Home";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
 import "./Layout.scss";
 
@@ -34,6 +35,17 @@ const Layout = () => {
                                     <PlaylistAddIcon />
                                 </ListItemDecorator>
                                 <ListItemContent>키워드 등록</ListItemContent>
+                                <KeyboardArrowRightIcon />
+                            </ListItemButton>
+                        </NavLink>
+                    </ListItem>
+                    <ListItem>
+                        <NavLink to="contact-us">
+                            <ListItemButton variant="plain">
+                                <ListItemDecorator>
+                                    <QuestionAnswerIcon />
+                                </ListItemDecorator>
+                                <ListItemContent>문의하기</ListItemContent>
                                 <KeyboardArrowRightIcon />
                             </ListItemButton>
                         </NavLink>
