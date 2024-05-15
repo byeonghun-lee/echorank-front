@@ -27,6 +27,11 @@
             padding: 0.4rem;
         }
 
+        .detail {
+            flex: 0.4;
+            padding: 0.4rem;
+        }
+
         .log-area {
             flex: 2;
             padding: 0.4rem;
@@ -39,6 +44,7 @@
 
     .table-header {
         border-bottom: 1px solid $table-border-color;
+        font-weight: 500;
     }
 
     .table-body-item + .table-body-item {
@@ -46,6 +52,26 @@
     }
 
     .table-body-item {
+        .keyword {
+            font-weight: bold;
+
+            a {
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .more-btn {
+            color: $green-800;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
         .blog-list {
             display: flex;
             flex-direction: column;

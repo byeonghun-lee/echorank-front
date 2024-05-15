@@ -6,6 +6,7 @@ import MainPage from "MainPage";
 import AddKeywordPage from "AddKeywordPage";
 import ScraingImageDetail from "ScraingDetailImage";
 import ContactUsPage from "ContactUsPage";
+import KeywordDetailPage from "KeywordDetailPage";
 
 import PrivateRoutes from "PrivateRoutes";
 
@@ -33,12 +34,16 @@ const router = createBrowserRouter([
             },
             {
                 path: "/add-keyword",
-                element: <AddKeywordPage/>
+                element: <AddKeywordPage />,
             },
             {
                 path: "/contact-us",
-                element: <ContactUsPage/>
-            }
+                element: <ContactUsPage />,
+            },
+            {
+                path: "/keywords/:keyworRelation",
+                element: <KeywordDetailPage />,
+            },
         ],
     },
     {

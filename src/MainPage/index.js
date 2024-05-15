@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import dayjs from "dayjs";
+import { Link } from "react-router-dom";
 
 import { getList as getListAPI } from "api/keyword";
 
@@ -15,7 +16,7 @@ const MainPage = () => {
 
             setKeywordList(data.list);
         } catch (error) {
-            window.alert(error.message);
+            window.alert(error.response?.data || error.message);
         }
     };
 
@@ -30,11 +31,16 @@ const MainPage = () => {
                     <ul className="table-header">
                         <li className="keyword">키워드</li>
                         <li className="blog-list">관리 블로그 리스트</li>
+                        <li className="detail">상세</li>
                         <li className="log-area">로그</li>
                     </ul>
                     {keywordList.map((item, keywordIndex) => (
                         <ul className="table-body-item" key={keywordIndex}>
-                            <li className="keyword">{item.name}</li>
+                            <li className="keyword">
+                                <Link to={`/keywords/${item.uuid}`}>
+                                    {item.name}
+                                </Link>
+                            </li>
                             <li className="blog-list">
                                 {item.blogList?.length ? (
                                     item.blogList.map((blog, index) => (
@@ -50,6 +56,14 @@ const MainPage = () => {
                                 ) : (
                                     <p>-</p>
                                 )}
+                            </li>
+                            <li className="detail">
+                                <Link
+                                    to={`/keywords/${item.uuid}`}
+                                    className="more-btn"
+                                >
+                                    더보기
+                                </Link>
                             </li>
                             <li className="log-area">
                                 {item.logList.map((log, logIndex) => (

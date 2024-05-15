@@ -1,0 +1,45 @@
+@import "styles/color";
+
+#keyword-detail-page {
+    $table-border-color: $gray-400;
+
+    padding: 3.2rem 3rem;
+
+    .table-wrapper {
+        width: 40rem;
+        border: 1px solid $table-border-color;
+        display: inline-block;
+    }
+
+    [class$="-row"] {
+        display: flex;
+    }
+
+    .name-row {
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    .blog-list-row {
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    .title-cell {
+        padding: 0.4rem;
+        border-right: 1px solid $table-border-color;
+        flex: 1;
+    }
+    .contents-cell {
+        padding: 0.4rem;
+        flex: 2;
+    }
+
+    a {
+        word-break: break-all;
+        color: $blue-700;
+        text-decoration: underline;
+
+        &:visited {
+            color: $deep-purple-800;
+        }
+    }
+}
