@@ -52,16 +52,18 @@ const ScraingDetailImage = () => {
                 />
             </div>
 
-            {scrapingData.blogList?.map((blogItem, index) => (
-                <div
-                    className="target-mark"
-                    key={index}
-                    style={{
-                        top: blogItem.elementPosition.top,
-                        width: blogItem.elementPosition.width,
-                    }}
-                />
-            ))}
+            {scrapingData.blogList
+                ?.filter((blogItem) => blogItem.elementPosition)
+                .map((blogItem, index) => (
+                    <div
+                        className="target-mark"
+                        key={index}
+                        style={{
+                            top: blogItem.elementPosition.top,
+                            width: blogItem.elementPosition.width,
+                        }}
+                    />
+                ))}
         </div>
     );
 };
