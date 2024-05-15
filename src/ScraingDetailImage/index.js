@@ -22,7 +22,7 @@ const ScraingDetailImage = () => {
             console.log("data:", data);
             setScrapingData(data);
         } catch (error) {
-            window.alert(error.message);
+            window.alert(error.response?.data || error.message);
         }
         setLoadingStatus(false);
     };

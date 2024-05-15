@@ -51,7 +51,7 @@ const AddKeywordPage = () => {
             reset();
         } catch (error) {
             console.log("error:", error);
-            window.alert(error.message);
+            window.alert(error.response?.data || error.message);
         }
 
         setLoadingStatus(false);
