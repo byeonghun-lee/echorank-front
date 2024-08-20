@@ -61,6 +61,9 @@ const Login = () => {
                         회원가입
                     </Link>
                 </form>
+                <Link to="/product" className="move-to-landing">
+                    처음 오셨나요?
+                </Link>
             </div>
             <Snackbar
                 autoHideDuration={3000}

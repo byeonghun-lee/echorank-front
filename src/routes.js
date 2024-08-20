@@ -7,6 +7,7 @@ import AddKeywordPage from "AddKeywordPage";
 import ScraingImageDetail from "ScraingDetailImage";
 import ContactUsPage from "ContactUsPage";
 import KeywordDetailPage from "KeywordDetailPage";
+import ProductPage from "ProductPage";
 
 import PrivateRoutes from "PrivateRoutes";
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     {
         path: "/scrapingLog",
         element: <ScraingImageDetail />,
+    },
+    {
+        path: "/product",
+        element: <ProductPage />,
     },
     {
         path: "/",
