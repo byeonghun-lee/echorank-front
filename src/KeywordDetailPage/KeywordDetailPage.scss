@@ -5,6 +5,17 @@
 
     padding: 3.2rem 3rem;
 
+    .ctrl-button-area {
+        margin-bottom: 0.7rem;
+        width: 40rem;
+        display: flex;
+        justify-content: flex-end;
+
+        button + button {
+            margin-left: 0.5rem;
+        }
+    }
+
     .table-wrapper {
         width: 40rem;
         border: 1px solid $table-border-color;
@@ -40,6 +51,69 @@
 
         &:visited {
             color: $deep-purple-800;
+        }
+    }
+
+    .exist-blog-list-in-edit-mode {
+        .exist-blog-item {
+            margin-bottom: 0.5rem;
+
+            display: flex;
+            align-items: center;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.6rem;
+                height: 1.6rem;
+                border-radius: 50%;
+                border: none;
+                background-color: $gray-200;
+                color: $gray-400;
+
+                .MuiSvgIcon-root {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        input {
+            display: inline-block;
+            margin-right: 0.5rem;
+            width: 20rem;
+            height: 2rem;
+
+            &:read-only {
+                background-color: $gray-100;
+                border: 1px solid $gray-300;
+                color: $gray-500;
+            }
+        }
+    }
+
+    .new-added-blog-list {
+        display: flex;
+        align-items: flex-end;
+
+        input {
+            margin-bottom: 0.5rem;
+
+            width: 20rem;
+            height: 2rem;
+        }
+
+        .add-blog-button {
+            border-radius: 50%;
+            border: none;
+            margin-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            width: 1.7rem;
+            height: 1.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $gray-100;
         }
     }
 }

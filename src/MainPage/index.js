@@ -7,13 +7,15 @@ import { getList as getListAPI } from "api/keyword";
 import "./MainPage.scss";
 
 const MainPage = () => {
+    const [isLoading, setLoading] = useState(true);
     const [keywordList, setKeywordList] = useState([]);
 
     const getList = async () => {
         try {
             const { data } = await getListAPI();
-            console.log("data:", data);
+            // console.log("data:", data);
 
+            setLoading(false);
             setKeywordList(data.list);
         } catch (error) {
             window.alert(error.response?.data || error.message);
@@ -87,7 +89,7 @@ const MainPage = () => {
                         </ul>
                     ))}
                 </div>
-            ) : (
+            ) : isLoading ? null : (
                 <div className="empty-list">
                     <p>아직 등록된 키워드가 없습니다.</p>
                 </div>
